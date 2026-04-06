@@ -1,0 +1,121 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do You Love Me? ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #fff;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 150px;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      position: absolute;
+    }
+
+    #yesBtn {
+      background-color: #28a745;
+      color: white;
+      left: 20%;
+      bottom: 20px;
+    }
+
+    #noBtn {
+      background-color: #dc3545;
+      color: white;
+      right: 20%;
+      top: 20px;
+    }
+
+    #message {
+      margin-top: 30px;
+      font-size: 22px;
+      color: white;
+      display: none;
+      animation: pop 0.5s ease;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Do You Love Me? ❤️</h1>
+
+    <div class="buttons">
+      <button id="yesBtn">Yes 😍</button>
+      <button id="noBtn">No 😢</button>
+    </div>
+
+    <div id="message">I knew it 😎❤️</div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const message = document.getElementById("message");
+
+    function moveNoButton() {
+      const padding = 50;
+      const maxX = window.innerWidth - padding;
+      const maxY = window.innerHeight - padding;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    // Works for both desktop + mobile
+    noBtn.addEventListener("touchstart", moveNoButton);
+    noBtn.addEventListener("mouseover", moveNoButton);
+
+    yesBtn.addEventListener("click", () => {
+      message.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
+```
